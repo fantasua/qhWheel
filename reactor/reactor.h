@@ -31,6 +31,7 @@ class Reactor {
   void Start();
   void Stop();
   pthread_t GetThreadId() { return thread_id_; }
+  pthread_t SetThreadId(pthread_t id) { thread_id_ = id; }
   std::size_t GetTaskNum() { return task_list_.size(); }
 
  public:
