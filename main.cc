@@ -8,7 +8,9 @@
 
 #define MAX_EVENTS 1024
 
-int main() {
+// 自造轮子
+
+int main(int argc, char *argv[]) {
   std::cout << "my reactor started" << std::endl;
 
   int reactor_num = 4;

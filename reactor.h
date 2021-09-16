@@ -10,6 +10,41 @@ using std::list;
 
 class Reactor;
 
+namespace Component {
+
+// 内部event事件
+struct Event {
+
+};
+
+// Reactor执行的task
+struct Task{};
+
+// reactor定义
+class Reactor {
+ public:
+  Reactor();
+  ~Reactor();
+
+ public:
+  void Init();
+  void Start();
+  void Stop();
+  pthread_t GetThreadId() { return thread_id_; }
+  std::size_t GetTaskNum() { return task_list_.size(); }
+
+ public:
+  bool AppendTask();
+  bool DeleteTask();
+
+ private:
+ private:
+  pthread_t thread_id_;
+  list<Event> task_list_;
+  int epoll_fd_;
+};
+};
+
 struct ParamWrapper {
   Reactor *reactor;
 };
